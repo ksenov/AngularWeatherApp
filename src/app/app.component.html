@@ -1,4 +1,71 @@
-<div class="container">
+<div class="container" *ngIf="weatherData">
+
+  <div class="upper-data">
+
+    <img src="../assets/day.jpg" *ngIf="14 > 15">
+    <img src="../assets/city.png" *ngIf="14 <= 15">
+
+    <div class="weather-data">
+      <div class="location">{{weatherData.name}}</div>
+      <div class="temperature">{{ weatherData.main.temp | convertToCelsius }} °С</div>
+    </div>
+  </div>
+
+  <div class="lower-data">
+
+    <div class="more-info-label">
+      More Information
+    </div>
+
+    <div class="more-info-containter">
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/min.png">
+          <span>min</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.main.temp_min | convertToCelsius }} °С
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/max.png">
+          <span>max</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.main.temp_max | convertToCelsius }} °С
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/min.png">
+          <span>humidity</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.main.humidity }}%
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/wind.png">
+          <span>wind</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.wind.speed | number: '1.0-0' }} km/h
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- <div class="container">
 
   <div class="upper-data">
 
@@ -7,7 +74,7 @@
 
     <div class="weather-data">
       <div class="location">Moscow</div>
-      <div class="temperature">{{ 2.2 | number: '1.0-0' }} °С</div>
+      <div class="temperature">{{ 2 | convertToCelsius }} °С</div>
     </div>
   </div>
 
@@ -63,6 +130,6 @@
 
   </div>
 
-</div>
+</div> -->
 
 <router-outlet></router-outlet>

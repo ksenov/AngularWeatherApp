@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Nunito:wght@200;300;500;900&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 :root {
     --blue-1: #3c429e;
     --blue-2: #4c52ad;
@@ -15,7 +17,7 @@
 }
 
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Nunito, Geneva, Tahoma, sans-serif;
     font-size: 16px;
     width: 100%;
     height: 100vh;
@@ -63,7 +65,7 @@ body {
             .location {
                 color: var(--white);
                 text-align: center;
-                font-size: 1.2em;
+                font-size: 1.5em;
             }
 
             .temperature {
@@ -76,6 +78,17 @@ body {
     }
 
     .lower-data {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 50%;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+
+
         .more-info-label {
             color: var(--white);
         }
@@ -103,7 +116,7 @@ body {
                     align-items: center;
 
                     img {
-                        width: 1em;
+                        width: 2em;
                     }
 
                     span {
