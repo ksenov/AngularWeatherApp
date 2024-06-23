@@ -28,6 +28,30 @@ body {
     align-items: center;
 }
 
+.bg-night {
+    background: radial-gradient(circle, rgba(12,12,88,1) 0%, rgba(13,13,52,1) 100%);
+}
+
+.bg-day {
+    background: radial-gradient(circle, rgba(149,226,255,1) 0%, rgba(44,131,210,1) 100%);
+}
+
+.search {
+    margin-bottom: 1em;
+    text-align: center;
+
+    input {
+        background-color: var(--shadow-light);
+        outline: none;
+        border: none;
+        border-radius: 20px;
+        padding: 1em;
+        color: var(--grey-1);
+        font-size: 0.8em;
+        text-align: center;
+    }
+}
+
 .container {
     width: 400px;
     height: 80vh;

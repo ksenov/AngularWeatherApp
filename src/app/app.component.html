@@ -1,14 +1,19 @@
+<div class="search">
+  <form #form="ngForm" (submit)="onSubmit()">
+    <input type="text" placeholder="Search city" name="city" [(ngModel)]="cityName">
+  </form>
+</div>
+
+
 <div class="container" *ngIf="weatherData">
 
   <div class="upper-data">
-
-    <img src="../assets/day.jpg" *ngIf="14 > 15">
-    <img src="../assets/city.png" *ngIf="14 <= 15">
-
     <div class="weather-data">
       <div class="location">{{weatherData.name}}</div>
       <div class="temperature">{{ weatherData.main.temp | convertToCelsius }} °С</div>
     </div>
+    <!-- <img src="../assets/day.jpg" *ngIf="14 > 15">
+    <img src="../assets/city.png" *ngIf="14 <= 15"> -->
   </div>
 
   <div class="lower-data">
@@ -58,78 +63,11 @@
           {{ weatherData.wind.speed | number: '1.0-0' }} km/h
         </div>
       </div>
-
     </div>
-
   </div>
-
 </div>
 
-<!-- <div class="container">
+<div *ngIf="!weatherData"><p>No data...</p></div>
 
-  <div class="upper-data">
-
-    <img src="../assets/day.jpg" *ngIf="14 > 15">
-    <img src="../assets/city.png" *ngIf="14 <= 15">
-
-    <div class="weather-data">
-      <div class="location">Moscow</div>
-      <div class="temperature">{{ 2 | convertToCelsius }} °С</div>
-    </div>
-  </div>
-
-  <div class="lower-data">
-
-    <div class="more-info-label">
-      More Information
-    </div>
-
-    <div class="more-info-containter">
-
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/min.png">
-          <span>min</span>
-        </div>
-        <div class="info-block-value">
-          -2°C
-        </div>
-      </div>
-
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/max.png">
-          <span>min</span>
-        </div>
-        <div class="info-block-value">
-          3°C
-        </div>
-      </div>
-
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/min.png">
-          <span>humidity</span>
-        </div>
-        <div class="info-block-value">
-          5%
-        </div>
-      </div>
-
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/wind.png">
-          <span>wind</span>
-        </div>
-        <div class="info-block-value">
-          10 km/h
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-</div> -->
 
 <router-outlet></router-outlet>

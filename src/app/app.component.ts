@@ -8,6 +8,7 @@ import { WeatherData } from './models/weather.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  cityName: string = 'moscow';
   weatherData?: WeatherData;
 
   constructor(
@@ -15,12 +16,30 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-      this.weatherService.getWeatherData('bern')
+    this.getWeatherData(this.cityName + '/EN')
+  }
+
+  onSubmit() {
+    this.getWeatherData(this.addLangIfIsCyrillic(this.cityName));
+    this.cityName = ''
+  }
+
+  private getWeatherData(cityName: string) {
+    this.weatherService.getWeatherData(cityName)
         .subscribe({
           next: (response) => {
             this.weatherData = response;
             console.log(response);
           }
-        });
+    });
+  }
+
+  addLangIfIsCyrillic(text: string): string {
+    let isCyrillic = /[а-я]/i.test(text);
+    let newText: string;
+    if (isCyrillic) newText = text + '/RU';
+    else newText = text + '/EN';
+
+    return newText;
   }
 }
