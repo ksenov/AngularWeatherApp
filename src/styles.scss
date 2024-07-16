@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Nunito:wght@200;300;500;900&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
 
 :root {
     --blue-1: #3c429e;
@@ -21,7 +23,7 @@ body {
     font-size: 16px;
     width: 100%;
     height: 100vh;
-    background-color: var(--blue-1);
+    background: radial-gradient(circle, rgba(12,12,88,1) 0%, rgba(13,13,52,1) 100%);
 
     display: flex;
     justify-content: center;
@@ -85,15 +87,14 @@ body {
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            color: var(--white);
 
             .location {
-                color: var(--white);
                 text-align: center;
                 font-size: 1.5em;
             }
 
             .temperature {
-                color: var(--white);
                 font-size: 4em;
                 text-align: center;
                 font-weight: 900;
@@ -119,8 +120,7 @@ body {
         .more-info-containter {
             flex: 1;
             background-color: var(--shadow-light);
-            border-bottom-left-radius: 20px;
-            border-bottom-left-radius: 20px;
+            border-radius: 20px;
             margin-top: 1em;
 
             display: flex;

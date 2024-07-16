@@ -1,9 +1,17 @@
 <div class="search">
-  <form #form="ngForm" (submit)="onSubmit()">
-    <input type="text" placeholder="Search city" name="city" [(ngModel)]="cityName">
+  
+  <form style="display: flex; flex-direction: column;;" #form="ngForm" (submit)="onSubmit()">
+    <label class="input-label" for="username">City:</label>
+    <input type="text" pInputText [(ngModel)]="cityName" />
+    <!-- <input type="text" placeholder="Search city" name="city" [(ngModel)]="cityName"> -->
   </form>
 </div>
 
+@if (isLoading) {
+  <div class="loading">
+    <p-progressBar mode="indeterminate" [style]="{ height: '6px' }" />
+  </div>
+}
 
 <div class="container" *ngIf="weatherData">
 
@@ -11,9 +19,10 @@
     <div class="weather-data">
       <div class="location">{{weatherData.name}}</div>
       <div class="temperature">{{ weatherData.main.temp | convertToCelsius }} °С</div>
+      <div class="wth-description">{{ weatherData.weather[0].description }}</div>
     </div>
-    <!-- <img src="../assets/day.jpg" *ngIf="14 > 15">
-    <img src="../assets/city.png" *ngIf="14 <= 15"> -->
+    <img src="../assets/day.jpg" *ngIf="14 > 15">
+    <img src="../assets/city.png" *ngIf="14 <= 15">
   </div>
 
   <div class="lower-data">
@@ -67,7 +76,7 @@
   </div>
 </div>
 
-<div *ngIf="!weatherData"><p>No data...</p></div>
+
 
 
 <router-outlet></router-outlet>
